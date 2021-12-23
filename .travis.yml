@@ -1,0 +1,22 @@
+language: node_js
+cache : 
+  directores:
+    - node_modules
+    - ~/ .npm
+  node_js :
+    - '12'
+  git :
+    - depth : 3
+  scripts :
+    -  yarn build
+  deploy :
+    provider : pages
+    skip_cleanup: true
+    kee_history: true
+    github_token: $GITHUB_TOKEN
+    local-dir : dist/
+    target_branch: gh-pages
+    commit_message: " Deploy Proyecto"
+    on
+    branch : master
+    
